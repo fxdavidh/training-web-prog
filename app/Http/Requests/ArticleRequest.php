@@ -25,9 +25,9 @@ class ArticleRequest extends FormRequest
     {
         return 
         [
-            'title' => 'required|max:255|unique',
+            'title' => 'required|max:255',
             'content' => 'required',
-            'image' => 'nullable',
+            'image' => 'required',
             'author' => 'required'
         ];
     }

@@ -4,14 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\Http\Requests\ArticleRequest;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
 class ArticleController extends Controller {
-    public
-    function create(ArticleRequest $request) {
 
-
+    public function show()
+    {
+        $articles = Article::paginate();
+        return view('viewHome', compact('articles'));
+    }
+    
+    public function create(ArticleRequest $request) {
         $path = $request -> file('image') -> store('article_images');
 
         Article::create([
@@ -21,6 +23,6 @@ class ArticleController extends Controller {
             'author' => $request -> author
         ]);
 
-        return redirect(route('viewHome')) -> with('success', 'create success');
+        return $this->show() -> with('success', 'create success');
     }
 }

@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'ViewController@viewHome')->name('viewHome');
-Route::post('/article/create', 'ArticleController@create')->name('create');
-
+Route::get('/article/create', 'ViewController@viewCreate')->name('viewCreate');
+Route::post('/article/', 'ArticleController@create')->name('createArticle');
+Route::get('/article/show', 'ArticleController@show')->name('showArticle');
