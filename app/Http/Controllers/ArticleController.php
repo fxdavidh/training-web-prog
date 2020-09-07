@@ -9,7 +9,7 @@ class ArticleController extends Controller {
 
     public function show()
     {
-        $articles = Article::paginate();
+        $articles = Article::paginate(5);
         return view('viewHome', compact('articles'));
     }
     

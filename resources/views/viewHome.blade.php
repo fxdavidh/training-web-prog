@@ -35,5 +35,6 @@
           @endforeach
         </tbody>
       </table>
+      {{$articles->links()}}
 </body>
 </html>
